@@ -11,7 +11,7 @@ import SwiftUI
 struct EmployeeDirApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
     }
 }

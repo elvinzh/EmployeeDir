@@ -8,13 +8,20 @@
 import SwiftUI
 
 struct EmployeeListView: View {
+    var employeeListViewModel: EmployeeListViewModel
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            List(employeeListViewModel.employeeViewModels) { employeeViewModel in
+                NavigationLink(destination: EmployeeDetailView(employeeDetailViewModel: employeeViewModel.generateEmployeeDetailViewModel())) {
+                    EmployeeRow(employeeViewModel: employeeViewModel)
+                }
+            }.navigationTitle("Employees")
+        }
     }
 }
 
 struct EmployeeListView_Previews: PreviewProvider {
     static var previews: some View {
-        EmployeeListView()
+        EmployeeListView(employeeListViewModel: EmployeeListViewModel())
     }
 }
