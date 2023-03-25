@@ -18,12 +18,15 @@ struct EmployeeRow: View {
             }
                 .frame(width: 60.0, height: 60.0)
                 .aspectRatio(contentMode: .fill)
+                .cornerRadius(10.0)
             VStack(alignment: .leading) {
                 Text(viewModel.name)
                     .font(.headline)
+                    .fontWeight(.regular)
+                
                 Text(viewModel.team)
                     .font(.subheadline)
-                    .foregroundColor(Color.gray)
+                    .foregroundColor(.secondary)
             }
             Spacer()
         }

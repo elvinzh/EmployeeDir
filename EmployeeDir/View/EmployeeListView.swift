@@ -9,14 +9,15 @@ import SwiftUI
 
 struct EmployeeListView: View {
     var viewModel: EmployeeListViewModel
+    @State private var searchText = ""
     var body: some View {
         NavigationView {
-            List(viewModel.employeeViewModels) { employeeViewModel in
+            List(viewModel.filteredEmployeeViewModels(searchText: searchText)) { employeeViewModel in
                 NavigationLink(destination: EmployeeDetailView(viewModel: employeeViewModel.generateEmployeeDetailViewModel())) {
                     EmployeeRow(viewModel: employeeViewModel)
                 }
             }.navigationTitle("Employees")
-        }
+        }.searchable(text: $searchText, prompt:"Search for employees")
     }
 }
 
