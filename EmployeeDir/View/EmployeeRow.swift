@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct EmployeeRow: View {
-    var employeeViewModel: EmployeeViewModel
+    var viewModel: EmployeeViewModel
     var body: some View {
         HStack {
-            AsyncImage(url: URL(string: employeeViewModel.avatar!)) { image in
+            AsyncImage(url: URL(string: viewModel.avatar!)) { image in
                 image.resizable()
             } placeholder: {
                 Image("Portrait_Placeholder").resizable()
@@ -19,9 +19,9 @@ struct EmployeeRow: View {
                 .frame(width: 60.0, height: 60.0)
                 .aspectRatio(contentMode: .fill)
             VStack(alignment: .leading) {
-                Text(employeeViewModel.name)
+                Text(viewModel.name)
                     .font(.headline)
-                Text(employeeViewModel.team)
+                Text(viewModel.team)
                     .font(.subheadline)
                     .foregroundColor(Color.gray)
             }
@@ -33,7 +33,7 @@ struct EmployeeRow: View {
 struct EmployeeRow_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            EmployeeRow(employeeViewModel: EmployeeViewModel(employee: mockEmployee1))
+            EmployeeRow(viewModel: EmployeeViewModel(employee: mockEmployee1))
         }
         .previewLayout(.fixed(width: 300, height: 70))
     }

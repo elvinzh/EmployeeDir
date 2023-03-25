@@ -16,6 +16,8 @@
 		DB88C44529CE8126001C3881 /* EmployeeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88C44429CE8126001C3881 /* EmployeeRow.swift */; };
 		DB88C44729CE8259001C3881 /* EmployeeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88C44629CE8259001C3881 /* EmployeeViewModel.swift */; };
 		DB88C44929CF8910001C3881 /* EymployeeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88C44829CF8910001C3881 /* EymployeeDetailViewModel.swift */; };
+		DB88C44B29CF99AF001C3881 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88C44A29CF99AF001C3881 /* SettingViewModel.swift */; };
+		DB88C44D29CF99D6001C3881 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88C44C29CF99D6001C3881 /* OnboardingViewModel.swift */; };
 		DBB2A55F29CE4F5100112607 /* EmployeeDirApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB2A55E29CE4F5100112607 /* EmployeeDirApp.swift */; };
 		DBB2A56329CE4F5600112607 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBB2A56229CE4F5600112607 /* Assets.xcassets */; };
 		DBB2A56629CE4F5600112607 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBB2A56529CE4F5600112607 /* Preview Assets.xcassets */; };
@@ -51,6 +53,8 @@
 		DB88C44429CE8126001C3881 /* EmployeeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeRow.swift; sourceTree = "<group>"; };
 		DB88C44629CE8259001C3881 /* EmployeeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeViewModel.swift; sourceTree = "<group>"; };
 		DB88C44829CF8910001C3881 /* EymployeeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EymployeeDetailViewModel.swift; sourceTree = "<group>"; };
+		DB88C44A29CF99AF001C3881 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		DB88C44C29CF99D6001C3881 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		DBB2A55B29CE4F5100112607 /* EmployeeDir.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmployeeDir.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBB2A55E29CE4F5100112607 /* EmployeeDirApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDirApp.swift; sourceTree = "<group>"; };
 		DBB2A56229CE4F5600112607 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 				DB88C44229CE7FEA001C3881 /* EmployeeListViewModel.swift */,
 				DB88C44629CE8259001C3881 /* EmployeeViewModel.swift */,
 				DB88C44829CF8910001C3881 /* EymployeeDetailViewModel.swift */,
+				DB88C44A29CF99AF001C3881 /* SettingViewModel.swift */,
+				DB88C44C29CF99D6001C3881 /* OnboardingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -312,7 +318,9 @@
 				DB88C43F29CE7C7F001C3881 /* EmployeeDetailView.swift in Sources */,
 				DB88C44729CE8259001C3881 /* EmployeeViewModel.swift in Sources */,
 				DB88C44529CE8126001C3881 /* EmployeeRow.swift in Sources */,
+				DB88C44D29CF99D6001C3881 /* OnboardingViewModel.swift in Sources */,
 				DB88C43D29CE7C2B001C3881 /* SettingView.swift in Sources */,
+				DB88C44B29CF99AF001C3881 /* SettingViewModel.swift in Sources */,
 				DB88C44329CE7FEA001C3881 /* EmployeeListViewModel.swift in Sources */,
 				DBB2A55F29CE4F5100112607 /* EmployeeDirApp.swift in Sources */,
 			);
@@ -475,6 +483,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"EmployeeDir/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Employee Directory";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -503,6 +512,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"EmployeeDir/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Employee Directory";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct EmployeeListView: View {
-    var employeeListViewModel: EmployeeListViewModel
+    var viewModel: EmployeeListViewModel
     var body: some View {
         NavigationView {
-            List(employeeListViewModel.employeeViewModels) { employeeViewModel in
-                NavigationLink(destination: EmployeeDetailView(employeeDetailViewModel: employeeViewModel.generateEmployeeDetailViewModel())) {
-                    EmployeeRow(employeeViewModel: employeeViewModel)
+            List(viewModel.employeeViewModels) { employeeViewModel in
+                NavigationLink(destination: EmployeeDetailView(viewModel: employeeViewModel.generateEmployeeDetailViewModel())) {
+                    EmployeeRow(viewModel: employeeViewModel)
                 }
             }.navigationTitle("Employees")
         }
@@ -22,6 +22,6 @@ struct EmployeeListView: View {
 
 struct EmployeeListView_Previews: PreviewProvider {
     static var previews: some View {
-        EmployeeListView(employeeListViewModel: EmployeeListViewModel())
+        EmployeeListView(viewModel: EmployeeListViewModel())
     }
 }

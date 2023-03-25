@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct EmployeeDetailView: View {
-    var employeeDetailViewModel: EmployeeDetailViewModel
+    var viewModel: EmployeeDetailViewModel
     var body: some View {
         ScrollView {
             
-            AsyncImage(url: URL(string: employeeDetailViewModel.avatar!)) { image in
+            AsyncImage(url: URL(string: viewModel.avatar!)) { image in
                 image.resizable()
             } placeholder: {
                 Image("Portrait_Placeholder").resizable()
@@ -22,20 +22,20 @@ struct EmployeeDetailView: View {
             VStack(alignment: .leading) {
                 HStack {
                     
-                    Text(employeeDetailViewModel.team)
+                    Text(viewModel.team)
                     Spacer()
-                    Text(employeeDetailViewModel.employeeType)
+                    Text(viewModel.employeeType)
                 }
                 .padding(.vertical)
                 .font(.headline)
                 
-                if let phoneNumber = employeeDetailViewModel.phoneNumber {
+                if let phoneNumber = viewModel.phoneNumber {
                     Text("PhoneNumber: " + phoneNumber)
                         .foregroundColor(Color.gray)
                 }
-                Text("Email: " + employeeDetailViewModel.email)
+                Text("Email: " + viewModel.email)
                     .foregroundColor(Color.gray)
-                if let biography = employeeDetailViewModel.biography {
+                if let biography = viewModel.biography {
                     Text(biography)
                         .font(.body)
                         .padding(.top)
@@ -43,12 +43,12 @@ struct EmployeeDetailView: View {
             }
             .padding(/*@START_MENU_TOKEN@*/.horizontal/*@END_MENU_TOKEN@*/)
             Spacer()
-        }.navigationTitle(employeeDetailViewModel.name)
+        }.navigationTitle(viewModel.name)
     }
 }
 
 struct EmployeeDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        EmployeeDetailView(employeeDetailViewModel: EmployeeDetailViewModel(employee: mockEmployee1))
+        EmployeeDetailView(viewModel: EmployeeDetailViewModel(employee: mockEmployee1))
     }
 }

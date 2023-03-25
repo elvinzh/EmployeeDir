@@ -8,13 +8,25 @@
 import SwiftUI
 
 struct SettingView: View {
+    var viewModel: SettingViewModel
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            List(viewModel.list, id: \.title) { (title, content) in
+                HStack {
+                    Text(title)
+                        .font(.headline)
+                    Spacer()
+                    Text(content)
+                }
+                .padding(.vertical, 8.0)
+                
+            }.navigationTitle("Setting")
+        }
     }
 }
 
 struct SettingView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingView()
+        SettingView(viewModel: SettingViewModel())
     }
 }

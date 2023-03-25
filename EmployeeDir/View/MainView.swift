@@ -10,10 +10,10 @@ import SwiftUI
 struct MainView: View {
     var body: some View {
         TabView {
-            EmployeeListView(employeeListViewModel: EmployeeListViewModel()).tabItem {
+            EmployeeListView(viewModel: EmployeeListViewModel()).tabItem {
                 Label("Employees", systemImage: "person.3")
             }
-            SettingView().tabItem {
+            SettingView(viewModel: SettingViewModel()).tabItem {
                 Label("Settings", systemImage: "gear")
             }
         }
