@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB88C43529CE58DE001C3881 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88C43429CE58DE001C3881 /* Employee.swift */; };
 		DBB2A55F29CE4F5100112607 /* EmployeeDirApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB2A55E29CE4F5100112607 /* EmployeeDirApp.swift */; };
 		DBB2A56129CE4F5100112607 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB2A56029CE4F5100112607 /* ContentView.swift */; };
 		DBB2A56329CE4F5600112607 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBB2A56229CE4F5600112607 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DB88C43429CE58DE001C3881 /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		DBB2A55B29CE4F5100112607 /* EmployeeDir.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmployeeDir.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBB2A55E29CE4F5100112607 /* EmployeeDirApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDirApp.swift; sourceTree = "<group>"; };
 		DBB2A56029CE4F5100112607 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,6 +73,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB88C43329CE58CA001C3881 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DB88C43429CE58DE001C3881 /* Employee.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		DBB2A55229CE4F5000112607 = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +104,7 @@
 		DBB2A55D29CE4F5100112607 /* EmployeeDir */ = {
 			isa = PBXGroup;
 			children = (
+				DB88C43329CE58CA001C3881 /* Model */,
 				DBB2A55E29CE4F5100112607 /* EmployeeDirApp.swift */,
 				DBB2A56029CE4F5100112607 /* ContentView.swift */,
 				DBB2A56229CE4F5600112607 /* Assets.xcassets */,
@@ -258,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBB2A56129CE4F5100112607 /* ContentView.swift in Sources */,
+				DB88C43529CE58DE001C3881 /* Employee.swift in Sources */,
 				DBB2A55F29CE4F5100112607 /* EmployeeDirApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
