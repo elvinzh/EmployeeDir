@@ -34,45 +34,33 @@ class EmployeeListViewModel: ObservableObject {
         }
     }
     
-    func fetchEmployeeList() {
+    @MainActor
+    private func updateEmployee(employees: [Employee]?, errorMsg: String?) {
+        if employees != nil {
+            self.employees = employees!
+        } else {
+            self.errorMsg = errorMsg
+        }
+    }
+    
+    private func fetchEmployeeList() {
         Task {
-            let (employees, errorMsg) = await APIService.fetchEmployees()
-            await MainActor.run {
-                if employees != nil {
-                    self.employees.removeAll()
-                    self.employees.append(contentsOf: employees!)
-                } else {
-                    self.errorMsg = errorMsg
-                }
-            }
+            let (employees, errorMsg) = await APIService.fetchCompleteEmployees()
+            await updateEmployee(employees: employees, errorMsg: errorMsg)
         }
     }
     
     func testMalformedEmployeeList() {
         Task {
             let (employees, errorMsg) = await APIService.fetchMalformedEmployees()
-            await MainActor.run {
-                if employees != nil {
-                    self.employees.removeAll()
-                    self.employees.append(contentsOf: employees!)
-                } else {
-                    self.errorMsg = errorMsg
-                }
-            }
+            await updateEmployee(employees: employees, errorMsg: errorMsg)
         }
     }
     
     func testEmptyEmployeeList() {
         Task {
             let (employees, errorMsg) = await APIService.fetchEmptyEmployees()
-            await MainActor.run {
-                if employees != nil {
-                    self.employees.removeAll()
-                    self.employees.append(contentsOf: employees!)
-                } else {
-                    self.errorMsg = errorMsg
-                }
-            }
+            await updateEmployee(employees: employees, errorMsg: errorMsg)
         }
     }
     
