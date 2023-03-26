@@ -14,7 +14,7 @@ struct SettingView: View {
             List(viewModel.list, id: \.title) { (title, content) in
                 HStack {
                     Text(title)
-                        .font(.headline)
+                        .foregroundColor(.secondary)
                     Spacer()
                     Text(content)
                 }

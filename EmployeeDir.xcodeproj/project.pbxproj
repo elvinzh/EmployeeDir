@@ -18,6 +18,7 @@
 		DB88C44929CF8910001C3881 /* EymployeeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88C44829CF8910001C3881 /* EymployeeDetailViewModel.swift */; };
 		DB88C44B29CF99AF001C3881 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88C44A29CF99AF001C3881 /* SettingViewModel.swift */; };
 		DB88C44D29CF99D6001C3881 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88C44C29CF99D6001C3881 /* OnboardingViewModel.swift */; };
+		DB88C45029CFC92A001C3881 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88C44F29CFC92A001C3881 /* APIService.swift */; };
 		DBB2A55F29CE4F5100112607 /* EmployeeDirApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB2A55E29CE4F5100112607 /* EmployeeDirApp.swift */; };
 		DBB2A56329CE4F5600112607 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBB2A56229CE4F5600112607 /* Assets.xcassets */; };
 		DBB2A56629CE4F5600112607 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBB2A56529CE4F5600112607 /* Preview Assets.xcassets */; };
@@ -55,6 +56,7 @@
 		DB88C44829CF8910001C3881 /* EymployeeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EymployeeDetailViewModel.swift; sourceTree = "<group>"; };
 		DB88C44A29CF99AF001C3881 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		DB88C44C29CF99D6001C3881 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		DB88C44F29CFC92A001C3881 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		DBB2A55B29CE4F5100112607 /* EmployeeDir.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmployeeDir.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBB2A55E29CE4F5100112607 /* EmployeeDirApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDirApp.swift; sourceTree = "<group>"; };
 		DBB2A56229CE4F5600112607 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -123,6 +125,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		DB88C44E29CFC913001C3881 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				DB88C44F29CFC92A001C3881 /* APIService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		DBB2A55229CE4F5000112607 = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +156,7 @@
 		DBB2A55D29CE4F5100112607 /* EmployeeDir */ = {
 			isa = PBXGroup;
 			children = (
+				DB88C44E29CFC913001C3881 /* Service */,
 				DB88C43729CE765F001C3881 /* View */,
 				DB88C43629CE764D001C3881 /* ViewModel */,
 				DB88C43329CE58CA001C3881 /* Model */,
@@ -320,6 +331,7 @@
 				DB88C44529CE8126001C3881 /* EmployeeRow.swift in Sources */,
 				DB88C44D29CF99D6001C3881 /* OnboardingViewModel.swift in Sources */,
 				DB88C43D29CE7C2B001C3881 /* SettingView.swift in Sources */,
+				DB88C45029CFC92A001C3881 /* APIService.swift in Sources */,
 				DB88C44B29CF99AF001C3881 /* SettingViewModel.swift in Sources */,
 				DB88C44329CE7FEA001C3881 /* EmployeeListViewModel.swift in Sources */,
 				DBB2A55F29CE4F5100112607 /* EmployeeDirApp.swift in Sources */,

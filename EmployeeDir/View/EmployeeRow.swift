@@ -16,8 +16,8 @@ struct EmployeeRow: View {
             } placeholder: {
                 Image("Portrait_Placeholder").resizable()
             }
+                .scaledToFill()
                 .frame(width: 60.0, height: 60.0)
-                .aspectRatio(contentMode: .fill)
                 .cornerRadius(10.0)
             VStack(alignment: .leading) {
                 Text(viewModel.name)

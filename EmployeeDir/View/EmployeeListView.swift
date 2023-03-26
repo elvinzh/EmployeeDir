@@ -16,7 +16,13 @@ struct EmployeeListView: View {
                 NavigationLink(destination: EmployeeDetailView(viewModel: employeeViewModel.generateEmployeeDetailViewModel())) {
                     EmployeeRow(viewModel: employeeViewModel)
                 }
-            }.navigationTitle("Employees")
+            }
+            .navigationTitle("Employees")
+            .toolbar {
+                Button("Test") {
+                    
+                }
+            }
         }.searchable(text: $searchText, prompt:"Search for employees")
     }
 }

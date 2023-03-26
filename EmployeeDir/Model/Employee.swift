@@ -57,3 +57,8 @@ class Employee: Equatable, Hashable, Codable {
         self.employeeType = employeeType
     }
 }
+
+class Employees: Codable {
+    var employees: [Employee]
+    
+}
