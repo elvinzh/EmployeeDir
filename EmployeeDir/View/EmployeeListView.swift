@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EmployeeListView: View {
-    var viewModel: EmployeeListViewModel
+    @EnvironmentObject var viewModel: EmployeeListViewModel
     @State private var searchText = ""
     var body: some View {
         NavigationView {
@@ -19,16 +19,26 @@ struct EmployeeListView: View {
             }
             .navigationTitle("Employees")
             .toolbar {
-                Button("Test") {
-                    
+                Button("Mal") {
+                    viewModel.testMalformedEmployeeList()
+                }
+                Button("Empty") {
+                    viewModel.testEmptyEmployeeList()
                 }
             }
-        }.searchable(text: $searchText, prompt:"Search for employees")
+        }
+        .searchable(text: $searchText, prompt:"Search for employees")
+        .alert(isPresented: $viewModel.alertError) {
+            Alert(
+                title: Text(viewModel.errorMsg!),
+                dismissButton: .cancel()
+            )
+        }
     }
 }
 
 struct EmployeeListView_Previews: PreviewProvider {
     static var previews: some View {
-        EmployeeListView(viewModel: EmployeeListViewModel())
+        EmployeeListView().environmentObject(EmployeeListViewModel(mockData: true))
     }
 }

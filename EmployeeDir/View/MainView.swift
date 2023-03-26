@@ -10,12 +10,16 @@ import SwiftUI
 struct MainView: View {
     var body: some View {
         TabView {
-            EmployeeListView(viewModel: EmployeeListViewModel()).tabItem {
-                Label("Employees", systemImage: "person.3")
-            }
-            SettingView(viewModel: SettingViewModel()).tabItem {
-                Label("Settings", systemImage: "gear")
-            }
+            EmployeeListView()
+                .environmentObject(EmployeeListViewModel())
+                .tabItem {
+                    Label("Employees", systemImage: "person.3")
+                }
+            
+            SettingView(viewModel: SettingViewModel())
+                .tabItem {
+                    Label("Settings", systemImage: "gear")
+                }
         }
     }
 }

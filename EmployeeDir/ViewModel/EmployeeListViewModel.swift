@@ -9,11 +9,17 @@ import Foundation
 
 let mockEmployeeList = [mockEmployee1, mockEmployee2]
 
-class EmployeeListViewModel {
+class EmployeeListViewModel: ObservableObject {
     
-    private var employees = [Employee]()
+    @Published private(set) var employees = [Employee]()
     
     private(set) var employeeViewModels = [EmployeeViewModel]()
+    private(set) var errorMsg: String? {
+        didSet {
+            alertError = errorMsg != nil && errorMsg!.count > 0
+        }
+    }
+    @Published var alertError = false
     
     private func filteredEmployees(searchText: String) -> [Employee] {
         guard !searchText.isEmpty else { return employees }
@@ -30,22 +36,42 @@ class EmployeeListViewModel {
     
     func fetchEmployeeList() {
         Task {
-            do {
-                let result = try await APIService.fetchEmployees()
-                employees.removeAll()
-                employees.append(contentsOf:result)
-            } catch {
+            let (employees, errorMsg) = await APIService.fetchEmployees()
+            await MainActor.run {
+                if employees != nil {
+                    self.employees.removeAll()
+                    self.employees.append(contentsOf: employees!)
+                } else {
+                    self.errorMsg = errorMsg
+                }
             }
         }
     }
     
     func testMalformedEmployeeList() {
         Task {
-            do {
-                let result = try await APIService.fetchMalformedEmployees()
-                employees.removeAll()
-                employees.append(contentsOf:result)
-            } catch {
+            let (employees, errorMsg) = await APIService.fetchMalformedEmployees()
+            await MainActor.run {
+                if employees != nil {
+                    self.employees.removeAll()
+                    self.employees.append(contentsOf: employees!)
+                } else {
+                    self.errorMsg = errorMsg
+                }
+            }
+        }
+    }
+    
+    func testEmptyEmployeeList() {
+        Task {
+            let (employees, errorMsg) = await APIService.fetchEmptyEmployees()
+            await MainActor.run {
+                if employees != nil {
+                    self.employees.removeAll()
+                    self.employees.append(contentsOf: employees!)
+                } else {
+                    self.errorMsg = errorMsg
+                }
             }
         }
     }
