@@ -9,16 +9,32 @@ import SwiftUI
 
 struct EmployeeRow: View {
     var viewModel: EmployeeViewModel
+    @StateObject var imageLoader: ImageLoader
     var body: some View {
         HStack {
-            AsyncImage(url: URL(string: viewModel.avatar!)) { image in
-                image.resizable()
-            } placeholder: {
-                Image("Portrait_Placeholder").resizable()
+//            AsyncImage(url: URL(string: viewModel.avatar!)) { image in
+//                image.resizable()
+//            } placeholder: {
+//                Image("Portrait_Placeholder").resizable()
+//            }
+//                .scaledToFill()
+//                .frame(width: 60.0, height: 60.0)
+//                .cornerRadius(10.0)
+            
+            if let image = imageLoader.image {
+                Image(uiImage: image)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 60.0, height: 60.0)
+                    .cornerRadius(10.0)
+            } else {
+                Image("Portrait_Placeholder")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 60.0, height: 60.0)
+                    .cornerRadius(10.0)
             }
-                .scaledToFill()
-                .frame(width: 60.0, height: 60.0)
-                .cornerRadius(10.0)
+            
             VStack(alignment: .leading) {
                 Text(viewModel.name)
                     .font(.headline)
@@ -36,7 +52,7 @@ struct EmployeeRow: View {
 struct EmployeeRow_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            EmployeeRow(viewModel: EmployeeViewModel(employee: mockEmployee1))
+            EmployeeRow(viewModel: EmployeeViewModel(employee: mockEmployee1), imageLoader: ImageLoader())
         }
         .previewLayout(.fixed(width: 300, height: 70))
     }

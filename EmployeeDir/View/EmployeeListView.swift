@@ -13,8 +13,9 @@ struct EmployeeListView: View {
     var body: some View {
         NavigationView {
             List(viewModel.filteredEmployeeViewModels(searchText: searchText)) { employeeViewModel in
-                NavigationLink(destination: EmployeeDetailView(viewModel: employeeViewModel.generateEmployeeDetailViewModel())) {
-                    EmployeeRow(viewModel: employeeViewModel)
+                let detailViewModel = employeeViewModel.generateEmployeeDetailViewModel()
+                NavigationLink(destination: EmployeeDetailView(viewModel: detailViewModel, imageLoader: ImageLoader(url: detailViewModel.avatar))) {
+                    EmployeeRow(viewModel: employeeViewModel, imageLoader:ImageLoader(url:employeeViewModel.avatar))
                 }
             }
             .navigationTitle("Employees")

@@ -9,20 +9,24 @@ import SwiftUI
 
 struct EmployeeDetailView: View {
     var viewModel: EmployeeDetailViewModel
+    @StateObject var imageLoader: ImageLoader
     var body: some View {
         ScrollView {
             GeometryReader { geo in
-                AsyncImage(url: URL(string: viewModel.avatar!)) { image in
-                    image
+                if let image = imageLoader.image {
+                    Image(uiImage: image)
                         .resizable()
                         .scaledToFill()
-                } placeholder: {
+                        .frame(width: geo.size.width, height: geo.size.width)
+                        .clipped()
+                } else {
                     Image("Portrait_Placeholder")
                         .resizable()
                         .scaledToFill()
+                        .frame(width: geo.size.width, height: geo.size.width)
+                        .clipped()
+                    
                 }
-                .frame(width: geo.size.width, height: geo.size.width)
-                .clipped()
             }
             .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
             
@@ -58,6 +62,6 @@ struct EmployeeDetailView: View {
 
 struct EmployeeDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        EmployeeDetailView(viewModel: EmployeeDetailViewModel(employee: mockEmployee1))
+        EmployeeDetailView(viewModel: EmployeeDetailViewModel(employee: mockEmployee1), imageLoader: ImageLoader())
     }
 }
