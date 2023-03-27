@@ -20,7 +20,7 @@ struct SettingView: View {
                 }
                 .padding(.vertical, 8.0)
                 
-            }.navigationTitle("Setting")
+            }.navigationTitle("Settings")
         }
     }
 }
