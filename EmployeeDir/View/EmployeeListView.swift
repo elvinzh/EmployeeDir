@@ -18,6 +18,10 @@ struct EmployeeListView: View {
                     EmployeeRow(viewModel: employeeViewModel, imageLoader:ImageLoader(url:employeeViewModel.avatar))
                 }
             }
+            .searchable(text: $searchText, prompt:"Search for employees")
+            .refreshable {
+                viewModel.fetchEmployeeList()
+            }
             .navigationTitle("Employees")
             .toolbar {
                 Button("Mal") {
@@ -28,7 +32,6 @@ struct EmployeeListView: View {
                 }
             }
         }
-        .searchable(text: $searchText, prompt:"Search for employees")
         .alert(isPresented: $viewModel.alertError) {
             Alert(
                 title: Text(viewModel.errorMsg!),

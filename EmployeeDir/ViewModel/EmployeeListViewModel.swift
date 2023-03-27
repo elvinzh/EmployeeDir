@@ -43,7 +43,7 @@ class EmployeeListViewModel: ObservableObject {
         }
     }
     
-    private func fetchEmployeeList() {
+    func fetchEmployeeList() {
         Task {
             let (employees, errorMsg) = await APIService.fetchCompleteEmployees()
             await updateEmployee(employees: employees, errorMsg: errorMsg)
