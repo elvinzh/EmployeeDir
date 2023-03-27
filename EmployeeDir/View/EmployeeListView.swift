@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EmployeeListView: View {
-    @EnvironmentObject var viewModel: EmployeeListViewModel
+    @EnvironmentObject private var viewModel: EmployeeListViewModel
     @State private var searchText = ""
     var body: some View {
         NavigationView {

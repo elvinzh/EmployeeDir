@@ -12,14 +12,13 @@ let mockEmployeeList = [mockEmployee1, mockEmployee2]
 class EmployeeListViewModel: ObservableObject {
     
     @Published private(set) var employees = [Employee]()
-    
+    @Published var alertError = false
     private(set) var employeeViewModels = [EmployeeViewModel]()
     private(set) var errorMsg: String? {
         didSet {
             alertError = errorMsg != nil && errorMsg!.count > 0
         }
     }
-    @Published var alertError = false
     
     private func filteredEmployees(searchText: String) -> [Employee] {
         guard !searchText.isEmpty else { return employees }
