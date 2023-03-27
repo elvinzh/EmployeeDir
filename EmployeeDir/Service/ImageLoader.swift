@@ -21,38 +21,26 @@ class ImageLoader: ObservableObject {
     @MainActor
     private func updateImage(image: UIImage?) {
         self.image = image
-        
-//        print("Finish")
-//        print(url!)
-//        print(URLCache.shared.currentMemoryUsage)
-//        print(URLCache.shared.currentDiskUsage)
     }
     
     private func loadImage() {
-//        print("LoadImage")
-//        print(url!)
         Task {
             if let imageUrl = URL(string: url ?? "") {
                 let urlRequest = URLRequest(url: imageUrl, cachePolicy: .returnCacheDataElseLoad)
                 
-//                let cachedResponse = URLCache.shared.cachedResponse(for: urlRequest)
-//                if let cachedData = cachedResponse?.data {
-//                    NSLog("Cached")
-//                    print(cachedData)
-//                }
-                
-                let (data, response) = try await URLSession.shared.data(for:urlRequest)
-
-//                NSLog("fetched")
-//                print(data)
-
-                if let httpRes = response as? HTTPURLResponse, httpRes.statusCode == 200 {
-                    let image = UIImage(data: data)
-                    await updateImage(image: image)
+                let cachedResponse = URLCache.shared.cachedResponse(for: urlRequest)
+                if let cachedData = cachedResponse?.data {
+                    await updateImage(image: UIImage(data: cachedData))
                 } else {
-                    await updateImage(image: nil)
+                    let (data, response) = try await URLSession.shared.data(for:urlRequest)
+                    if let httpRes = response as? HTTPURLResponse, httpRes.statusCode == 200 {
+                        let cachedResponse = CachedURLResponse(response: response, data: data)
+                        URLCache.shared.storeCachedResponse(cachedResponse, for: urlRequest)
+                        await updateImage(image: UIImage(data: data))
+                    } else {
+                        await updateImage(image: nil)
+                    }
                 }
-                
             } else {
                 await updateImage(image: nil)
             }
