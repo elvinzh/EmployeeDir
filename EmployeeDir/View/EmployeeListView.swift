@@ -12,12 +12,26 @@ struct EmployeeListView: View {
     @State private var searchText = ""
     var body: some View {
         NavigationView {
-            List(viewModel.filteredEmployeeViewModels(searchText: searchText)) {
-                employeeViewModel in
-                let detailViewModel = employeeViewModel.generateEmployeeDetailViewModel()
-                NavigationLink(destination: EmployeeDetailView(viewModel: detailViewModel, imageLoader: ImageLoader(url: detailViewModel.avatar))) {
-                    EmployeeRow(viewModel: employeeViewModel, imageLoader:ImageLoader(url:employeeViewModel.avatar))
+            VStack {
+                let items = viewModel.filteredEmployeeViewModels(searchText: searchText)
+                if items.isEmpty {
+                    List {
+                        HStack {
+                            Spacer()
+                            Text("No content")
+                            Spacer()
+                        }.listRowBackground(Color.clear)
+                    }
+                    
+                } else {
+                    List(items) { employeeViewModel in
+                        let detailViewModel = employeeViewModel.generateEmployeeDetailViewModel()
+                        NavigationLink(destination: EmployeeDetailView(viewModel: detailViewModel, imageLoader: ImageLoader(url: detailViewModel.avatar))) {
+                            EmployeeRow(viewModel: employeeViewModel, imageLoader:ImageLoader(url:employeeViewModel.avatar))
+                        }
+                    }
                 }
+                
             }
             .searchable(text: $searchText, prompt:"Search for employees")
             .refreshable {

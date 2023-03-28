@@ -36,8 +36,6 @@ class EmployeeListViewModel: ObservableObject {
     private func updateEmployee(employees: [Employee]?, errorMsg: String?) {
         if employees != nil {
             self.employees = employees!
-            print("updateEmployee ")
-            print(self.employees)
         } else {
             self.errorMsg = errorMsg
         }
