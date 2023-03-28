@@ -12,7 +12,8 @@ struct EmployeeListView: View {
     @State private var searchText = ""
     var body: some View {
         NavigationView {
-            List(viewModel.filteredEmployeeViewModels(searchText: searchText)) { employeeViewModel in
+            List(viewModel.filteredEmployeeViewModels(searchText: searchText)) {
+                employeeViewModel in
                 let detailViewModel = employeeViewModel.generateEmployeeDetailViewModel()
                 NavigationLink(destination: EmployeeDetailView(viewModel: detailViewModel, imageLoader: ImageLoader(url: detailViewModel.avatar))) {
                     EmployeeRow(viewModel: employeeViewModel, imageLoader:ImageLoader(url:employeeViewModel.avatar))
@@ -43,6 +44,6 @@ struct EmployeeListView: View {
 
 struct EmployeeListView_Previews: PreviewProvider {
     static var previews: some View {
-        EmployeeListView().environmentObject(EmployeeListViewModel(mockData: true))
+        EmployeeListView().environmentObject(EmployeeListViewModel(apiService: APIService.shared))
     }
 }

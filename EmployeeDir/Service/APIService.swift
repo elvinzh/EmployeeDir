@@ -10,24 +10,26 @@ import Foundation
 
 class APIService {
     
+    static let shared = APIService()
+    
     enum HttpError: Error {
         case InvalidURL
         case InvalidServerResponse
     }
     
-    static func fetchCompleteEmployees() async -> ([Employee]?, String?) {
+    func fetchEmployees() async -> ([Employee]?, String?) {
         return await fetchEmployeeFrom(url: "https://s3.amazonaws.com/sq-mobile-interview/employees.json")
     }
     
-    static func fetchMalformedEmployees() async -> ([Employee]?, String?) {
+    func fetchMalformedEmployees() async -> ([Employee]?, String?) {
         return await fetchEmployeeFrom(url: "https://s3.amazonaws.com/sq-mobile-interview/employees_malformed.json")
     }
     
-    static func fetchEmptyEmployees() async -> ([Employee]?, String?) {
+    func fetchEmptyEmployees() async -> ([Employee]?, String?) {
         return await fetchEmployeeFrom(url: "https://s3.amazonaws.com/sq-mobile-interview/employees_empty.json")
     }
     
-    private static func fetchEmployeeFrom(url: String) async -> ([Employee]?, String?) {
+    fileprivate func fetchEmployeeFrom(url: String) async -> ([Employee]?, String?) {
         do {
             let data = try await getDataFrom(url: url)
             let decoder = JSONDecoder()
@@ -41,7 +43,7 @@ class APIService {
         }
     }
     
-    private static func getDataFrom(url: String) async throws -> Data {
+    private func getDataFrom(url: String) async throws -> Data {
         guard let requestUrl = URL(string: url) else {
             throw HttpError.InvalidURL
         }
@@ -54,4 +56,24 @@ class APIService {
         
         return data
     }
+}
+
+
+class MockAPIService: APIService {
+    
+    private var mockEmployees: [Employee]?
+    private var mockErrorMsg: String?
+    
+    func setMockData(mockEmployees: [Employee]?, mockErrorMsg: String?) {
+        self.mockEmployees = mockEmployees
+        self.mockErrorMsg = mockErrorMsg
+    }
+    
+    override func fetchEmployees() async -> ([Employee]?, String?) {
+        guard mockEmployees != nil || mockErrorMsg != nil else {
+            return (mockEmployees, "Mock data not set.")
+        }
+        return (mockEmployees, mockErrorMsg)
+    }
+    
 }

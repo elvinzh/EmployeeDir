@@ -7,7 +7,10 @@
 
 import Foundation
 
-class EmployeeViewModel: Identifiable {
+class EmployeeViewModel: Identifiable, Equatable {
+    static func == (lhs: EmployeeViewModel, rhs: EmployeeViewModel) -> Bool {
+        return lhs.employee == rhs.employee
+    }
     
     private let employee: Employee
     

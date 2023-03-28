@@ -8,9 +8,10 @@
 import Foundation
 
 class OnboardingViewModel: ObservableObject {
+    let userDefaults: UserDefaults
     @Published var showedOnboarding: Bool {
         didSet {
-            UserDefaults.standard.set(showedOnboarding, forKey: "showedOnboarding")
+            userDefaults.set(showedOnboarding, forKey: "showedOnboarding")
         }
     }
     
@@ -18,7 +19,8 @@ class OnboardingViewModel: ObservableObject {
         return "Hello, this is Employee Directory."
     }
     
-    init() {
-        showedOnboarding = UserDefaults.standard.bool(forKey: "showedOnboarding")
+    init(userDefaults: UserDefaults) {
+        self.userDefaults = userDefaults
+        showedOnboarding = self.userDefaults.bool(forKey: "showedOnboarding")
     }
 }

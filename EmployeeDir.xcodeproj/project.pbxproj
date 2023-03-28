@@ -23,10 +23,13 @@
 		DBB2A55F29CE4F5100112607 /* EmployeeDirApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB2A55E29CE4F5100112607 /* EmployeeDirApp.swift */; };
 		DBB2A56329CE4F5600112607 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBB2A56229CE4F5600112607 /* Assets.xcassets */; };
 		DBB2A56629CE4F5600112607 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBB2A56529CE4F5600112607 /* Preview Assets.xcassets */; };
-		DBB2A57029CE4F5600112607 /* EmployeeDirTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB2A56F29CE4F5600112607 /* EmployeeDirTests.swift */; };
 		DBB2A57A29CE4F5600112607 /* EmployeeDirUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB2A57929CE4F5600112607 /* EmployeeDirUITests.swift */; };
 		DBB2A57C29CE4F5600112607 /* EmployeeDirUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB2A57B29CE4F5600112607 /* EmployeeDirUITestsLaunchTests.swift */; };
 		DBC1CEE329D2265300D0A818 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DBC1CEE529D2265300D0A818 /* Localizable.strings */; };
+		DBC1CEEA29D229BA00D0A818 /* EmployeeListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC1CEE929D229BA00D0A818 /* EmployeeListTests.swift */; };
+		DBC1CEF029D2834F00D0A818 /* EmployeeDetailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC1CEEF29D2834F00D0A818 /* EmployeeDetailTests.swift */; };
+		DBC1CEF229D2839600D0A818 /* SettingViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC1CEF129D2839600D0A818 /* SettingViewTests.swift */; };
+		DBC1CEF429D283A300D0A818 /* OnboardingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC1CEF329D283A300D0A818 /* OnboardingTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,13 +68,16 @@
 		DBB2A56229CE4F5600112607 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBB2A56529CE4F5600112607 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DBB2A56B29CE4F5600112607 /* EmployeeDirTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmployeeDirTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DBB2A56F29CE4F5600112607 /* EmployeeDirTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDirTests.swift; sourceTree = "<group>"; };
 		DBB2A57529CE4F5600112607 /* EmployeeDirUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmployeeDirUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBB2A57929CE4F5600112607 /* EmployeeDirUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDirUITests.swift; sourceTree = "<group>"; };
 		DBB2A57B29CE4F5600112607 /* EmployeeDirUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDirUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		DBC1CEE429D2265300D0A818 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DBC1CEE629D2269B00D0A818 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		DBC1CEE729D2275200D0A818 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DBC1CEE929D229BA00D0A818 /* EmployeeListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListTests.swift; sourceTree = "<group>"; };
+		DBC1CEEF29D2834F00D0A818 /* EmployeeDetailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailTests.swift; sourceTree = "<group>"; };
+		DBC1CEF129D2839600D0A818 /* SettingViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewTests.swift; sourceTree = "<group>"; };
+		DBC1CEF329D283A300D0A818 /* OnboardingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,7 +192,10 @@
 		DBB2A56E29CE4F5600112607 /* EmployeeDirTests */ = {
 			isa = PBXGroup;
 			children = (
-				DBB2A56F29CE4F5600112607 /* EmployeeDirTests.swift */,
+				DBC1CEE929D229BA00D0A818 /* EmployeeListTests.swift */,
+				DBC1CEEF29D2834F00D0A818 /* EmployeeDetailTests.swift */,
+				DBC1CEF129D2839600D0A818 /* SettingViewTests.swift */,
+				DBC1CEF329D283A300D0A818 /* OnboardingTests.swift */,
 			);
 			path = EmployeeDirTests;
 			sourceTree = "<group>";
@@ -354,7 +363,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBB2A57029CE4F5600112607 /* EmployeeDirTests.swift in Sources */,
+				DBC1CEF029D2834F00D0A818 /* EmployeeDetailTests.swift in Sources */,
+				DBC1CEEA29D229BA00D0A818 /* EmployeeListTests.swift in Sources */,
+				DBC1CEF429D283A300D0A818 /* OnboardingTests.swift in Sources */,
+				DBC1CEF229D2839600D0A818 /* SettingViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

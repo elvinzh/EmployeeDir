@@ -14,7 +14,7 @@ struct MainView: View {
             
             TabView {
                 EmployeeListView()
-                    .environmentObject(EmployeeListViewModel())
+                    .environmentObject(EmployeeListViewModel(apiService: APIService.shared))
                     .tabItem {
                         Label("Employees", systemImage: "person.3")
                     }
@@ -39,6 +39,6 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView(viewModel: OnboardingViewModel())
+        MainView(viewModel: OnboardingViewModel(userDefaults: UserDefaults.standard))
     }
 }

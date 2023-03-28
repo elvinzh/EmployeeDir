@@ -7,13 +7,12 @@
 
 import Foundation
 
-let mockEmployeeList = [mockEmployee1, mockEmployee2]
-
 class EmployeeListViewModel: ObservableObject {
     
-    @Published private(set) var employees = [Employee]()
+    let apiService: APIService
+    
+    @Published private var employees = [Employee]()
     @Published var alertError = false
-    private(set) var employeeViewModels = [EmployeeViewModel]()
     private(set) var errorMsg: String? {
         didSet {
             alertError = errorMsg != nil && errorMsg!.count > 0
@@ -37,41 +36,36 @@ class EmployeeListViewModel: ObservableObject {
     private func updateEmployee(employees: [Employee]?, errorMsg: String?) {
         if employees != nil {
             self.employees = employees!
+            print("updateEmployee ")
+            print(self.employees)
         } else {
             self.errorMsg = errorMsg
         }
     }
     
-    func fetchEmployeeList() {
-        Task {
-            let (employees, errorMsg) = await APIService.fetchCompleteEmployees()
+    func fetchEmployeeList() -> Task<Void, Error> {
+        return Task {
+            let (employees, errorMsg) = await apiService.fetchEmployees()
             await updateEmployee(employees: employees, errorMsg: errorMsg)
         }
     }
     
     func testMalformedEmployeeList() {
         Task {
-            let (employees, errorMsg) = await APIService.fetchMalformedEmployees()
+            let (employees, errorMsg) = await apiService.fetchMalformedEmployees()
             await updateEmployee(employees: employees, errorMsg: errorMsg)
         }
     }
     
     func testEmptyEmployeeList() {
         Task {
-            let (employees, errorMsg) = await APIService.fetchEmptyEmployees()
+            let (employees, errorMsg) = await apiService.fetchEmptyEmployees()
             await updateEmployee(employees: employees, errorMsg: errorMsg)
         }
     }
     
-    init() {
+    init(apiService: APIService) {
+        self.apiService = apiService
         fetchEmployeeList()
-    }
-    
-    init(mockData: Bool) {
-        if mockData {
-            employees.append(contentsOf: [mockEmployee1, mockEmployee2])
-        } else {
-            fetchEmployeeList()
-        }
     }
 }

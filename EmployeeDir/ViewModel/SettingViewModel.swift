@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct SettingViewModel {
+class SettingViewModel {
     private let infoDictionary = Bundle.main.infoDictionary
     
     private let failedToLoadErrorInfo = "Failed to load"
