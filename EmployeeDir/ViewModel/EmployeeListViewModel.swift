@@ -42,7 +42,12 @@ class EmployeeListViewModel: ObservableObject {
     }
     
     func fetchEmployeeList() -> Task<Void, Error> {
+        return fetchEmployeeList(delay: 0)
+    }
+    
+    func fetchEmployeeList(delay: UInt32) -> Task<Void, Error> {
         return Task {
+            if delay > 0 { sleep(delay) }
             let (employees, errorMsg) = await apiService.fetchEmployees()
             await updateEmployee(employees: employees, errorMsg: errorMsg)
         }

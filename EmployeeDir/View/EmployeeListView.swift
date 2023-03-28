@@ -33,13 +33,13 @@ struct EmployeeListView: View {
                 }
                 
             }
-            .searchable(text: $searchText, prompt:"Search for employees")
-            .refreshable {
-                viewModel.fetchEmployeeList()
-            }
             .navigationTitle("Employees")
+            .refreshable {
+                viewModel.fetchEmployeeList(delay: 1)
+            }
+            .searchable(text: $searchText, prompt:"Search for employees")
             .toolbar {
-                Button("Mal") {
+                Button("Malformed") {
                     viewModel.testMalformedEmployeeList()
                 }
                 Button("Empty") {
